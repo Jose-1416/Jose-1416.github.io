@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J16 | Marca Personal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Chatbot interactivo básico
+    function toggleChat() {
+      const chat = document.getElementById("chatbot");
+      chat.classList.toggle("hidden");
+    }
+
+    function sendMessage(event) {
+      if (event.key === "Enter") {
+        const input = document.getElementById("chatInput");
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        const chatBody = document.getElementById("chatBody");
+
+        // Mostrar mensaje del usuario
+        const userMsg = document.createElement("p");
+        userMsg.className = "text-right text-white mb-2";
+        userMsg.innerHTML = "<strong>Tú:</strong> " + msg;
+        chatBody.appendChild(userMsg);
+
+        // Respuesta automática simple
+        const botMsg = document.createElement("p");
+        botMsg.className = "text-left text-gray-300 mb-2";
+        if (msg.toLowerCase().includes("hola")) {
+          botMsg.innerHTML = "<strong>J16 Bot:</strong> ¡Hola! 👋 Bienvenido a J16. ¿Quieres info de productos o contacto?";
+        } else if (msg.toLowerCase().includes("producto")) {
+          botMsg.innerHTML = "<strong>J16 Bot:</strong> Tenemos cachucha, camiseta, hoodie y posillo. ¿Cuál te interesa?";
+        } else if (msg.toLowerCase().includes("contacto")) {
+          botMsg.innerHTML = "<strong>J16 Bot:</strong> Puedes escribirme al WhatsApp <a href='https://wa.me/573222452604' class='text-green-400 underline'>3222452604</a>";
+        } else {
+          botMsg.innerHTML = "<strong>J16 Bot:</strong> No entendí 🤔, intenta con 'hola', 'productos' o 'contacto'.";
+        }
+        chatBody.appendChild(botMsg);
+
+        // Auto scroll
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Limpiar input
+        input.value = "";
+      }
+    }
+  </script>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md z-50">
+    <nav class="flex justify-between items-center max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center space-x-3">
+        <img src="logo.png" alt="Logo J16" class="h-10 w-10 rounded-full">
+        <span class="text-2xl font-bold">J16</span>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="#inicio" class="hover:text-gray-400">Inicio</a></li>
+        <li><a href="#quien-soy" class="hover:text-gray-400">Quién soy</a></li>
+        <li><a href="#dedico" class="hover:text-gray-400">A qué me dedico</a></li>
+        <li><a href="#productos" class="hover:text-gray-400">Productos</a></li>
+        <li><a href="#contacto" class="hover:text-gray-400">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Encabezado con Video de YouTube (README.md) -->
+  <section id="inicio" class="h-screen flex flex-col justify-center items-center text-center px-6">
+    <h2 class="text-5xl font-bold mb-6">Bienvenido a <span class="text-gray-400">J16</span></h2>
+    <div class="w-full max-w-2xl aspect-video">
+      <iframe class="w-full h-full rounded-xl shadow-lg"
+        src="https://www.youtube.com/embed/-GQT_JS_uQs"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Quién Soy -->
+  <section id="quien-soy" class="min-h-screen flex flex-col justify-center items-center px-6 py-20">
+    <h3 class="text-4xl font-bold mb-6">Quién soy</h3>
+    <p class="max-w-2xl text-center text-gray-300">
+      Soy José, un apasionado por el diseño, el marketing y el aprendizaje constante.  
+      Mi marca <strong>J16</strong> es un reflejo de mi esencia: simple, directa y con impacto.
+    </p>
+  </section>
+
+  <!-- A qué me dedico -->
+  <section id="dedico" class="min-h-screen flex flex-col justify-center items-center px-6 py-20 bg-gray-900">
+    <h3 class="text-4xl font-bold mb-6">A qué me dedico</h3>
+    <p class="max-w-2xl text-center text-gray-300">
+      Me dedico a crear ideas, diseños y proyectos con un enfoque estratégico y creativo.  
+      Mi objetivo es aportar valor a través de lo que hago, inspirando e innovando.
+    </p>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="min-h-screen px-6 py-20">
+    <h3 class="text-4xl font-bold text-center mb-12">Productos</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+      <!-- Producto 1 -->
+      <div class="bg-gray-900 rounded-2xl p-6 text-center shadow-lg hover:scale-105 transition">
+        <img src="cachucha.png" alt="Cachucha Negra" class="h-40 mx-auto mb-4">
+        <h4 class="text-2xl font-bold">Cachucha Negra</h4>
+        <p class="text-gray-400 mt-2">Un accesorio moderno de <strong>J16</strong> que refleja estilo y personalidad.</p>
+        <p class="mt-4 text-lg font-semibold text-gray-200">$45.000 COP</p>
+        <a href="https://wa.me/573222452604?text=Hola%20quiero%20comprar%20la%20Cachucha%20Negra" target="_blank" 
+           class="block mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Comprar</a>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="bg-gray-900 rounded-2xl p-6 text-center shadow-lg hover:scale-105 transition">
+        <img src="camiseta.png" alt="Camiseta J16" class="h-40 mx-auto mb-4">
+        <h4 class="text-2xl font-bold">Camiseta</h4>
+        <p class="text-gray-400 mt-2">Diseño exclusivo que transmite la esencia <strong>J16</strong>: simple y con impacto.</p>
+        <p class="mt-4 text-lg font-semibold text-gray-200">$70.000 COP</p>
+        <a href="https://wa.me/573222452604?text=Hola%20quiero%20comprar%20la%20Camiseta%20J16" target="_blank" 
+           class="block mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Comprar</a>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="bg-gray-900 rounded-2xl p-6 text-center shadow-lg hover:scale-105 transition">
+        <img src="hoodie.png" alt="Hoodie J16" class="h-40 mx-auto mb-4">
+        <h4 class="text-2xl font-bold">Hoodie</h4>
+        <p class="text-gray-400 mt-2">Comodidad y estilo urbano con la autenticidad de <strong>J16</strong>.</p>
+        <p class="mt-4 text-lg font-semibold text-gray-200">$120.000 COP</p>
+        <a href="https://wa.me/573222452604?text=Hola%20quiero%20comprar%20el%20Hoodie%20J16" target="_blank" 
+           class="block mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Comprar</a>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="bg-gray-900 rounded-2xl p-6 text-center shadow-lg hover:scale-105 transition">
+        <img src="posillo.png" alt="Posillo J16" class="h-40 mx-auto mb-4">
+        <h4 class="text-2xl font-bold">Posillo</h4>
+        <p class="text-gray-400 mt-2">Empieza el día con energía y la inspiración de <strong>J16</strong>.</p>
+        <p class="mt-4 text-lg font-semibold text-gray-200">$30.000 COP</p>
+        <a href="https://wa.me/573222452604?text=Hola%20quiero%20comprar%20el%20Posillo%20J16" target="_blank" 
+           class="block mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Comprar</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="min-h-screen flex flex-col justify-center items-center px-6 py-20">
+    <h3 class="text-4xl font-bold mb-6">Contacto</h3>
+    <form class="flex flex-col gap-4 w-full max-w-md">
+      <input type="text" placeholder="Tu nombre" class="p-3 bg-gray-800 text-white rounded">
+      <input type="email" placeholder="Tu correo" class="p-3 bg-gray-800 text-white rounded">
+      <textarea placeholder="Tu mensaje" class="p-3 bg-gray-800 text-white rounded"></textarea>
+      <button class="bg-white text-black font-bold py-3 rounded hover:bg-gray-300 transition">
+        Enviar
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-6 text-center text-gray-500 flex flex-col items-center">
+    <img src="logo.png" alt="Logo J16" class="h-10 w-10 mb-2">
+    © 2025 J16 - Todos los derechos reservados.
+  </footer>
+
+  <!-- Botón flotante para chatbot -->
+  <button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-white text-black font-bold px-4 py-3 rounded-full shadow-lg hover:bg-gray-300 transition animate-bounce">
+    Chat
+  </button>
+
+  <!-- Ventana Chatbot -->
+  <div id="chatbot" class="hidden fixed bottom-20 right-6 w-80 h-96 bg-gray-900 rounded-2xl shadow-lg flex flex-col overflow-hidden">
+    <div class="bg-gray-800 p-3 flex justify-between items-center">
+      <span class="font-bold">Asistente J16</span>
+      <button onclick="toggleChat()" class="text-gray-400 hover:text-white">✖</button>
+    </div>
+    <div id="chatBody" class="flex-1 p-4 text-sm text-gray-300 overflow-y-auto">
+      <p><strong>J16 Bot:</strong> ¡Hola! 👋 ¿En qué puedo ayudarte hoy?</p>
+    </div>
+    <div class="p-3 bg-gray-800">
+      <input id="chatInput" type="text" placeholder="Escribe tu mensaje..." 
+             class="w-full p-2 rounded bg-gray-700 text-white text-sm"
+             onkeypress="sendMessage(event)">
+    </div>
+  </div>
+
+</body>
+</html>
+
